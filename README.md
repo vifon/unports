@@ -60,8 +60,8 @@ include ../unports.mk
 Installation
 ------------
 
-To start using *Unports*, simply copy the `unports` directory
-somewhere and start filling it with your packages/ports (one directory
+To start using *Unports*, simply copy the `unports` directory into
+`~/ports` and start filling it with your packages/ports (one directory
 = one port).  Try copying there some of the examples first to see how
 it works.
 
