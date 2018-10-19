@@ -1,0 +1,8 @@
+#!/bin/bash
+set -o errexit -o nounset -o pipefail
+
+if [ -d patches ]; then
+    ln -s ../../patches/ $SRCDIR/patches
+    cd $SRCDIR
+    quilt push -a
+fi

@@ -1,0 +1,9 @@
+#!/bin/bash
+set -o errexit -o nounset -o pipefail -o xtrace
+
+cd $SRCDIR
+if [ -x ../../scripts/build ]; then
+    ../../scripts/build
+else
+    make ${MAKEOPTS:-}
+fi

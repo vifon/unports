@@ -1,0 +1,9 @@
+#!/bin/bash
+set -o errexit -o nounset -o pipefail -o xtrace
+
+cd $SRCDIR
+if [ -x ../../scripts/install ]; then
+    ../../scripts/install
+else
+    make PREFIX=$PREFIX install
+fi
