@@ -5,6 +5,10 @@ cd $SRCDIR
 if [ -x ../../scripts/configure ]; then
     ../../scripts/configure
 else
-    if [ -x ./autogen.sh ]; then ./autogen.sh; fi
-    if [ -x ./configure ]; then ./configure --prefix=$PREFIX; fi
+    if [ -r ./CMakeLists.txt ]; then
+        cmake -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX .
+    else
+        if [ -x ./autogen.sh ]; then ./autogen.sh; fi
+        if [ -x ./configure ]; then ./configure --prefix=$PREFIX; fi
+    fi
 fi
