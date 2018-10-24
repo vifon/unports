@@ -1,14 +1,18 @@
 #!/bin/bash
 set -o errexit -o nounset -o pipefail -o xtrace
 
-cd $SRCDIR
-if [ -x ../../scripts/configure ]; then
-    ../../scripts/configure
-else
+default() {
     if [ -r ./CMakeLists.txt ]; then
         cmake -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX .
     else
         if [ -x ./autogen.sh ]; then ./autogen.sh; fi
         if [ -x ./configure ]; then ./configure --prefix=$PREFIX; fi
     fi
+}
+
+cd $SRCDIR
+if [ -x ../../scripts/configure ]; then
+    source ../../scripts/configure
+else
+    default
 fi

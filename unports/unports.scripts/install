@@ -1,9 +1,13 @@
 #!/bin/bash
 set -o errexit -o nounset -o pipefail -o xtrace
 
+default() {
+    make PREFIX=$PREFIX install
+}
+
 cd $SRCDIR
 if [ -x ../../scripts/install ]; then
-    ../../scripts/install
+    source ../../scripts/install
 else
-    make PREFIX=$PREFIX install
+    default
 fi

@@ -1,9 +1,13 @@
 #!/bin/bash
 set -o errexit -o nounset -o pipefail -o xtrace
 
+default() {
+    make ${MAKEOPTS:-}
+}
+
 cd $SRCDIR
 if [ -x ../../scripts/build ]; then
-    ../../scripts/build
+    source ../../scripts/build
 else
-    make ${MAKEOPTS:-}
+    default
 fi
