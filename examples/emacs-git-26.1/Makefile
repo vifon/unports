@@ -1,4 +1,4 @@
-P   = emacs
+PKG = emacs
 VER = git
 URL = https://git.savannah.gnu.org/git/$P.git -b $(BRANCH) --depth 1
 

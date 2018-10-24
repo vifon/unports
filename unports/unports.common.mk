@@ -1,3 +1,5 @@
+PKG     ?= $(notdir $(PWD))
+P        = $(PKG)
 PV       = $(P)-$(VER)
 SRCDIR   = work/$(PKGNAME)
 PKGDIR  ?= $(HOME)/pkgs

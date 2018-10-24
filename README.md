@@ -25,7 +25,7 @@ To see what *Unports* means by "extremely simple" consider these packages:
 - a package for a release of [ncdu](https://dev.yorhel.nl/ncdu)
 
 ```Makefile
-P   = ncdu
+PKG = ncdu
 VER = 1.13
 URL = https://dev.yorhel.nl/download/$(ARCHIVE)
 
@@ -35,7 +35,7 @@ include ../unports.mk
 - a package for GNU Emacs, the master branch from the Git repository
 
 ```Makefile
-P   = emacs
+PKG = emacs
 VER = git
 URL = https://git.savannah.gnu.org/git/$P.git --depth 1
 
@@ -47,7 +47,7 @@ include ../unports.mk
 - another package for GNU Emacs, this time with a numbered version, also from Git
 
 ```Makefile
-P   = emacs
+PKG = emacs
 VER = git
 URL = https://git.savannah.gnu.org/git/$P.git -b $(BRANCH) --depth 1
 
@@ -71,7 +71,7 @@ Syntax
 Usually an unport consists of only a Makefile with these 4 lines:
 
 ```Makefile
-P   = some-name
+PKG = some-name
 VER = version
 URL = https://example.com
 include ../unports.mk
@@ -79,7 +79,8 @@ include ../unports.mk
 
 Variables:
 
-- `P`: The name of the package, for example `emacs`.
+- `PKG`: The name of the package, for example `emacs`.  It defaults to
+  the current directory name.
 - `VER`: The package version, usually a number like `1.9.2` but almost
   anything else is fine too.  The value `git` has a special meaning
   here, see below.
@@ -89,8 +90,8 @@ Variables:
   additional Git flags in the former case, such as `--depth` or
   `--branch`.
   
-Additionally the variable `PV` is the same as `$(P)-$(VER)`, like in
-the Portage ebuilds.
+Additionally the variable `P` is a shorthand for `PKG` and `PV` is the
+same as `$(P)-$(VER)`, like in the Portage ebuilds.
 
 Optional variables:
 
