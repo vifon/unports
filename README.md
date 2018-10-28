@@ -13,7 +13,6 @@ structure.  It was also influenced by Portage used in Gentoo Linux.
 
 **DEPENDENCIES**
 
-- atool
 - git
 - quilt
 - wget
@@ -116,7 +115,7 @@ Targets
 The installation process in *Unports* consists of these targets:
 
 - `fetch`: Download the sources (dependency: either `git` or `wget`).
-- `extract`: Unpack the sources (dependency: either `git` or `atool`).
+- `extract`: Unpack the sources (dependency: either `git` or `tar`).
 - `patch`: Apply the patches if there are any (dependency:
   [quilt](https://savannah.nongnu.org/projects/quilt)).
 - `configure`: Prepare the build process.
@@ -144,8 +143,8 @@ This file's name should be stored in `ARCHIVE` (defaults to
 If `VER` is set to `git`, clone locally the previously fetched bare
 repository into a normal repository with a regular working tree.
 
-If `VER` isn't set to `git`, use `atool` (more specifically,
-`aunpack`) to unpack the previously downloaded archive.
+If `VER` isn't set to `git`, use `tar` to unpack the previously
+downloaded archive.
 
 **PATCH**
 
