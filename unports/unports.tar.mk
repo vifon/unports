@@ -13,4 +13,4 @@ work/$(ARCHIVE):
 .PHONY: extract
 extract: fetch $(SRCDIR)
 $(SRCDIR):
-	cd work/ && aunpack $(ARCHIVE)
+	cd work/ && tar zvxf $(ARCHIVE)
