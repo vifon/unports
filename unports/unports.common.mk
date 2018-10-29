@@ -1,4 +1,4 @@
-PKG     ?= $(notdir $(PWD))
+PKG     ?= $(notdir $(shell pwd))
 P        = $(PKG)
 V        = $(VER)
 PV       = $(P)-$(V)
