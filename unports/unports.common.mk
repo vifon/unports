@@ -1,8 +1,8 @@
-PKG     ?= $(notdir $(shell pwd))
+PKG     ?= $(notdir $(CURDIR))
 P        = $(PKG)
 V        = $(VER)
 PV       = $(P)-$(V)
-SRCDIR   = $(shell pwd)/work/$(PKGNAME)
+SRCDIR   = $(CURDIR)/work/$(PKGNAME)
 PKGDIR  ?= $(HOME)/pkgs
 PREFIX  ?= $(PKGDIR)/$(PKGNAME)
 STOWDIR ?= $(HOME)/local
