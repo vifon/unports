@@ -22,7 +22,7 @@ structure.  It was also influenced by Portage used in Gentoo Linux.
 **OK, BUT WHAT DOES IT DO?**
 
 At its core, Unports installs each program it manages into
-`~/pkgs/SOME_NAME` and then merges all the `~/pkgs/*` directory tree
+`~/pkgs/SOME_NAME` and then merges all the `~/pkgs/*` directory trees
 into `~/local` with GNU Stow which creates a directory similar to
 `/usr` or `/usr/local`.  The package format is meant to be as simple
 as possible and to automatically guess as much as it sanely can (for
