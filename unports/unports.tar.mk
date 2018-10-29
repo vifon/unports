@@ -1,7 +1,7 @@
 PORTSDIR = $(HOME)/ports
 
-PKGNAME  = $(PV)
-ARCHIVE ?= $(PKGNAME).tar.gz
+PKGNAME ?= $(PV)
+ARCHIVE ?= $(PV).tar.gz
 
 include $(PORTSDIR)/unports.common.mk
 

@@ -1,8 +1,8 @@
 PORTSDIR = $(HOME)/ports
 
-PKGNAME = $(PV)-$(BRANCH)
-BRANCH ?= master
-REPO   ?= $(P).git
+PKGNAME ?= $(PV)-$(BRANCH)
+BRANCH  ?= master
+REPO    ?= $(P).git
 
 include $(PORTSDIR)/unports.common.mk
 

@@ -14,8 +14,23 @@ structure.  It was also influenced by Portage used in Gentoo Linux.
 **DEPENDENCIES**
 
 - git
+- make
 - quilt
+- tar
 - wget
+
+**OK, BUT WHAT DOES IT DO?**
+
+At its core, Unports installs each program it manages into
+`~/pkgs/SOME_NAME` and then merges all the `~/pkgs/*` directory tree
+into `~/local` with GNU Stow which creates a directory similar to
+`/usr` or `/usr/local`.  The package format is meant to be as simple
+as possible and to automatically guess as much as it sanely can (for
+example automatic basic Autotools and CMake support).
+
+To install Unports, run `./install.sh` and answer the questions it
+will ask.  It will explain each action it is about to make and let you
+abort at any point.
 
 **EXAMPLES**
 
@@ -64,6 +79,9 @@ To start using *Unports*, simply copy the `unports` directory into
 = one port).  Try copying there some of the examples first to see how
 it works.
 
+You can also run `./install.sh` which does more or less the same
+thing.
+
 Syntax
 ------
 
@@ -89,8 +107,8 @@ Variables:
   additional Git flags in the former case, such as `--depth` or
   `--branch`.
   
-Additionally the variable `P` is a shorthand for `PKG` and `PV` is the
-same as `$(P)-$(VER)`, like in the Portage ebuilds.
+Additionally the variable `P` is a shorthand for `PKG`, `V` for `VER`
+and `PV` is the same as `$(P)-$(V)`, like in the Portage ebuilds.
 
 Optional variables:
 
@@ -104,10 +122,17 @@ Optional variables for Git-based packages:
 
 - `BRANCH`: Can be used to select a Git branch, default: `master`.
 - `REPO`: The name of the fetched bare repository, default: `$(P).git`.
+- `PKGNAME`: Explained below, defaults to `$(PV)-$(BRANCH)` (or
+  `$(P)-git-$(BRANCH)` in this case).
 
 Optional variables for archive-based packages:
 
-- `ARCHIVE`: The name of the downloaded archive, defaults to: `$(PV).tar.gz`
+- `ARCHIVE`: The name of the downloaded archive, defaults to: `$(PV).tar.gz`.
+- `PKGNAME`: This archive is expected to contain a directory called
+  `$(PKGNAME)` which defaults to `(PV)`.
+
+In both cases `$(PKGNAME)` will also be used as the directory name in
+`~/pkgs`.
 
 Targets
 -------
