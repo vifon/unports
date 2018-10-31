@@ -16,6 +16,7 @@ structure.  It was also influenced by Portage used in Gentoo Linux.
 - git
 - make
 - quilt
+- stow
 - tar
 - wget
 
