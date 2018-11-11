@@ -1,0 +1,13 @@
+Index: b/share/functions/__fish_parse_configure.fish
+===================================================================
+--- a/share/functions/__fish_parse_configure.fish
++++ b/share/functions/__fish_parse_configure.fish
+@@ -4,6 +4,8 @@ function __fish_parse_configure
+ 		return 1
+ 	end
+ 
++	set argv[1] (string trim $argv[1])
++
+ 	# `complete` parses `./configure` as `configure` so we have to handle all paths, not just ./
+ 	if not test -x $argv[1]
+ 		printf "Cannot find or execute '%s'\n" $argv[1] 1>&2
