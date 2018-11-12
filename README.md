@@ -119,10 +119,11 @@ Optional variables:
 - `NO_BUILD = 1`: Skip the `configure` and `build` steps.  Useful for
   example for the Python projects.
 - `DEPENDS`: List of commands needed by the package to be present in
-  the system.  Unports doesn't enforce these dependencies on its
-  ownbut they can be checked with the `depends` target or enforced by
-  using this target before the intended one, for example
-  `make depends merge`.
+  the system.  Unports won't install these dependencies and doesn't
+  enforce them on its own but they can be checked with the `depends`
+  target or enforced by using this target before the intended one, for
+  example `make depends merge`.  Treat `$(DEPENDS)` more like a
+  reminder what to install than a true dependency management solution.
 
 Optional variables for Git-based packages:
 
