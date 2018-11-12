@@ -117,7 +117,12 @@ Optional variables:
   used to build the package, for example `-j5` to utilize multiple
   CPUs.
 - `NO_BUILD = 1`: Skip the `configure` and `build` steps.  Useful for
-  example for the Python projects
+  example for the Python projects.
+- `DEPENDS`: List of commands needed by the package to be present in
+  the system.  Unports doesn't enforce these dependencies on its
+  ownbut they can be checked with the `depends` target or enforced by
+  using this target before the intended one, for example
+  `make depends merge`.
 
 Optional variables for Git-based packages:
 
@@ -224,6 +229,13 @@ Each of these steps performs the previous one too.
 
 - `unmerge`: Undo the `merge` step.
 - `deinstall`: Undo the `merge` and `install` steps.
+
+Helpers:
+
+- `depends`: Checks whether the commands specified in the `$(DEPENDS)`
+  variable exist in the system.  Prints each one with a "+" or "-"
+  respectively and exits with the code signifying how many were
+  missing.
 
 COPYRIGHT
 =========

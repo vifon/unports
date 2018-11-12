@@ -15,6 +15,20 @@ export MAKEOPTS
 .PHONY: all
 all: build
 
+.PHONY: depends
+depends:
+	@ missing=0; \
+	for command in $(DEPENDS); do \
+	    if command -v $$command > /dev/null 2>&1; then \
+	        printf "%s " +; \
+	    else \
+	        printf "%s " -; \
+	        missing=$$((missing + 1)); \
+	    fi; \
+	    printf '%s\n' $$command; \
+	done; \
+	exit $$missing
+
 .PHONY: patch
 patch: extract work/.STAGE1_patch
 work/.STAGE1_patch:
