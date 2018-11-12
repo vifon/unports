@@ -55,7 +55,7 @@ ask() {
 }
 
 main() {
-    if ! check-dependencies "git" "tar" "make" "quilt" "wget"; then
+    if ! check-dependencies "git" "tar" "make" "quilt" "wget" "stow"; then
         if ! ask "Do you want to continue nonetheless?"; then
             exit
         fi
