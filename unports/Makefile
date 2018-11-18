@@ -3,4 +3,4 @@ PORTS = $(sort $(dir $(wildcard */Makefile)))
 all: build
 
 %:
-	for port in $(PORTS); do make -C $$port $@; done
+	for port in $(PORTS); do $(MAKE) -C $$port $@; done
