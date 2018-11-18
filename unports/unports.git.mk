@@ -1,4 +1,4 @@
-PORTSDIR = $(HOME)/ports
+PORTSDIR = $(dir $(CURDIR))
 
 PKGNAME ?= $(PV)-$(BRANCH)
 BRANCH  ?= master
