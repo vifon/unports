@@ -10,6 +10,7 @@ structure.  It was also influenced by Portage used in Gentoo Linux.
 
 - no root privileges required
 - extremely simple package format
+- distro-agnostic, works the same everywhere
 
 **DEPENDENCIES**
 
@@ -76,9 +77,12 @@ Installation
 ------------
 
 To start using *Unports*, simply copy the `unports` directory into
-`~/ports` and start filling it with your packages/ports (one directory
-= one port).  Try copying there some of the examples first to see how
-it works.
+`~/ports` (other directories will work too but it's the default used
+by the installer) and start filling it with your packages/ports (one
+directory = one port).  Try copying there some of the examples first
+to see how it works.  So your first package would be placed in
+`~/ports/my-package` and contain at minimum the file
+`~/ports/my-package/Makefile`.
 
 You can also run `./install.sh` which does more or less the same
 thing.
